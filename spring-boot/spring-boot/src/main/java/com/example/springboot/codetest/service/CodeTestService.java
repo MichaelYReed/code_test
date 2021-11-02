@@ -31,7 +31,6 @@ public class CodeTestService {
         for (User u : allUsers) {
             if (userToProjectsMap.containsKey(u.getId())){
                 List<String> existingProjectMemberships = userToProjectsMap.get(u.getId());
-                System.out.println("User id "+u.getId()+" has a membership in these projects: "+existingProjectMemberships);
                 u.setProjectIds(existingProjectMemberships.toArray(new String[0]));
             }
         }

@@ -26,9 +26,6 @@ public class UserService {
         try {
             String result = httpService.sendGetRequest("https://5c3ce12c29429300143fe570.mockapi.io/api/registeredusers");
             List<User> registerUsers = new ObjectMapper().readValue(result, new TypeReference<List<User>>(){});
-            for (User u : registerUsers) {
-                System.out.println("Found REGISTERED user id: " + u.getId() + " from " + u.getCity());
-            }
             return registerUsers;
         } catch (IOException e) {
             System.out.println("Exception getting registered users: "+e);
@@ -42,9 +39,6 @@ public class UserService {
         try {
             String result = httpService.sendGetRequest("https://5c3ce12c29429300143fe570.mockapi.io/api/unregisteredusers");
             List<User> registerUsers = new ObjectMapper().readValue(result, new TypeReference<List<User>>(){});
-            for (User u : registerUsers) {
-                System.out.println("Found UNREGISTERED user id: " + u.getId() + " from " + u.getCity());
-            }
             return registerUsers;
         } catch (IOException e) {
             System.out.println("Exception getting registered users: "+e);

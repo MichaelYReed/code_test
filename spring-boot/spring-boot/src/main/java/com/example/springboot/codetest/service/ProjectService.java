@@ -22,9 +22,6 @@ public class ProjectService {
             String result = httpService.sendGetRequest(
                     "https://5c3ce12c29429300143fe570.mockapi.io/api/projectmemberships");
             List<ProjectMembership> projectMemberships = new ObjectMapper().readValue(result, new TypeReference<List<ProjectMembership>>(){});
-            for (ProjectMembership pm : projectMemberships) {
-                System.out.println("Found Project Membership with id: " + pm.getId() + " and project id " + pm.getProjectId());
-            }
             return projectMemberships;
         } catch (IOException e) {
             System.out.println("Exception getting project memberships users: "+e);
